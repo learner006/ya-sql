@@ -1,0 +1,7 @@
+SELECT ctr.id AS 'Country Id', ctr.name AS Country, COUNT(f.id) AS 'CompanyCount'
+FROM cities c, companies f, countries ctr
+WHERE c.id = f.city_id
+AND c.country_id = ctr.id
+AND f.labors >= 1000
+GROUP BY c.country_id
+ORDER BY ctr.id
